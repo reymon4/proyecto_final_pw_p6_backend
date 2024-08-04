@@ -8,6 +8,7 @@ public class ProyectoFinalPwP6BackendApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(ProyectoFinalPwP6BackendApplication.class, args);
+		System.err.println(">:)");
 	}
 
 }
