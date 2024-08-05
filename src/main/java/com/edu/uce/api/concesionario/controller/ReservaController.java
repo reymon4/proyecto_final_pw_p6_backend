@@ -120,5 +120,12 @@ public class ReservaController {
 		List<ReporteTO> list = this.iReservaService.reporte(fechaInicio, fechaFin);
 		return ResponseEntity.status(HttpStatus.OK).body(list);
 	}
+	
+	@GetMapping(path = "/comprobar", produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<List<ReservaTO>> comprobarReserva(@RequestParam LocalDateTime fechaInicio,
+			@RequestParam LocalDateTime fechaFin) {
+		List<ReservaTO> list = this.iReservaService.buscarReservasSuperpuestas(fechaInicio, fechaFin);
+		return ResponseEntity.status(HttpStatus.OK).body(list);
+	}
 
 }

@@ -16,4 +16,5 @@ public interface IReservaRepo {
 	public Reserva buscarPorClienteFecha(String cedula, String placa, LocalDateTime fechaInicio);
 	public List<Reserva> buscarReporte(LocalDateTime fechaInicio, LocalDateTime fechaFin);
 
+	public List<Reserva> seleccionarReservasSuperpuestas(LocalDateTime fechaInicio, LocalDateTime fechaFin);
 }

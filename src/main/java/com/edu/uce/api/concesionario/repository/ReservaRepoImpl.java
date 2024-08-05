@@ -65,5 +65,21 @@ public class ReservaRepoImpl implements IReservaRepo {
 		query.setParameter("datoFecha", fechaInicio);
 		return query.getSingleResult();
 	}
+	
+	@Override
+	public List<Reserva> seleccionarReservasSuperpuestas(LocalDateTime fechaInicio, LocalDateTime fechaFin) {
+		TypedQuery<Reserva> myQuery = this.entityManager.createQuery("SELECT r"
+				+ "	FROM Reserva r where (:datoFechaFin<=r.fechaFin and :datoFechaFin>=r.fechaInicio)"
+				+ "	or (:datoFechaInicio <=r.fechaFin and :datoFechaInicio>=r.fechaInicio)"
+				+ "	or (:datoFechaInicio <=r.fechaInicio and :datoFechaFin>=r.fechaFin)"
+				+ "	order by r.fechaFin desc", Reserva.class);
+
+		myQuery.setParameter("datoFechaFin", fechaFin);
+		myQuery.setParameter("datoFechaInicio", fechaInicio);
+
+		List<Reserva> reservas=myQuery.getResultList();
+
+		return reservas;
+	}
 
 }

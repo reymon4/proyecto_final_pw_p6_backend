@@ -167,5 +167,20 @@ public class ReservaServiceImpl implements IReservaService {
 	public ReservaTO buscarPorClienteFecha(String cedula, String placa, LocalDateTime fechaInicio) {
 		return this.convertirTO(this.iReservaRepo.buscarPorClienteFecha(cedula, placa, fechaInicio));
 	}
+	
+	@Override
+	public List<ReservaTO> buscarReservasSuperpuestas(LocalDateTime fechaInicio, LocalDateTime fechaFin) {
+
+		List<Reserva> reservas=this.iReservaRepo.seleccionarReservasSuperpuestas(fechaInicio, fechaFin);
+
+		List<ReservaTO> reservaTOs= new ArrayList<>();
+
+		for(Reserva r:reservas) {
+			reservaTOs.add(this.convertirTO(r));
+		}
+
+		return reservaTOs;
+	}
+
 
 }
