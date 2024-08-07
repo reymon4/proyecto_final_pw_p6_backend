@@ -48,7 +48,7 @@ public class VehiculoRepoImpl implements IVehiculoRepo {
 	public List<VehiculoDTO> buscarMarca(String marca) {
 		// TODO Auto-generated method stub
 		TypedQuery<VehiculoDTO> query = this.entityManager.createQuery(
-				"select new com.example.demo.service.dto.VehiculoDTO(v.placa, v.modelo, v.marca, v.anio, v.valorDia, v.estado) from Vehiculo v where v.marca=:datoMarca",
+				"select new com.edu.uce.api.concesionario.service.dto.VehiculoDTO(v.placa, v.modelo, v.marca, v.anio, v.valorDia, v.estado) from Vehiculo v where v.marca=:datoMarca",
 				VehiculoDTO.class);
 		query.setParameter("datoMarca", marca);
 		return query.getResultList();
@@ -58,7 +58,7 @@ public class VehiculoRepoImpl implements IVehiculoRepo {
 	public List<VehiculoDTO> buscarMarcaModelo(String marca, String modelo) {
 		// TODO Auto-generated method stub
 		TypedQuery<VehiculoDTO> query = this.entityManager.createQuery(
-				"SELECT new com.example.demo.service.dto.VehiculoDTO(e.placa, e.modelo, e.marca, e.anio, e.valorDia, e.estado) FROM Vehiculo e WHERE e.marca=:datoMarca AND e.modelo=:datoModelo",
+				"SELECT new com.edu.uce.api.concesionario.service.dto.VehiculoDTO(e.placa, e.modelo, e.marca, e.anio, e.valorDia, e.estado) FROM Vehiculo e WHERE e.marca=:datoMarca AND e.modelo=:datoModelo",
 				VehiculoDTO.class);
 		query.setParameter("datoMarca", marca);
 		query.setParameter("datoModelo", modelo);
@@ -76,7 +76,7 @@ public class VehiculoRepoImpl implements IVehiculoRepo {
 	public List<VehiculoDTO> buscarTodos() {
 		// TODO Auto-generated method stub
 		TypedQuery<VehiculoDTO> query = this.entityManager.createQuery(
-				"SELECT new com.example.demo.service.dto.VehiculoDTO(e.placa, e.modelo, e.marca, e.anio, e.valorDia, e.estado) FROM Vehiculo e",
+				"SELECT new com.edu.uce.api.concesionario.service.dto.VehiculoDTO(e.placa, e.modelo, e.marca, e.anio, e.valorDia, e.estado) FROM Vehiculo e",
 				VehiculoDTO.class);
 		return query.getResultList();
 	}

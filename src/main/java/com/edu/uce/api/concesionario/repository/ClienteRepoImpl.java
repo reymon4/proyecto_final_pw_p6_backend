@@ -47,7 +47,7 @@ public class ClienteRepoImpl implements IClienteRepo {
 	public List<ClienteDTO> buscarApellido(String apellido) {
 		// TODO Auto-generated method stub
 		TypedQuery<ClienteDTO> query = this.entityManager.createQuery(				
-				"select new com.example.demo.service.dto.ClienteDTO(c.cedula, c.nombre, c.apellido) from Cliente c where c.apellido=:datoApellido",
+				"select new com.edu.uce.api.concesionario.service.dto.ClienteDTO(c.cedula, c.nombre, c.apellido) from Cliente c where c.apellido=:datoApellido",
 				ClienteDTO.class);
 		query.setParameter("datoApellido", apellido);
 		return query.getResultList();
@@ -69,7 +69,7 @@ public class ClienteRepoImpl implements IClienteRepo {
 	public List<ClienteDTO> buscarTodos() {
 		// TODO Auto-generated method stub
 		TypedQuery<ClienteDTO> query = this.entityManager.createQuery(
-				"select new com.example.demo.service.dto.ClienteDTO(c.cedula, c.nombre, c.apellido) from Cliente c",
+				"select new com.edu.uce.api.concesionario.service.dto.ClienteDTO(c.cedula, c.nombre, c.apellido) from Cliente c",
 				ClienteDTO.class);
 		return query.getResultList();
 	}
