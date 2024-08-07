@@ -169,9 +169,9 @@ public class ReservaServiceImpl implements IReservaService {
 	}
 	
 	@Override
-	public List<ReservaTO> buscarReservasSuperpuestas(LocalDateTime fechaInicio, LocalDateTime fechaFin) {
+	public List<ReservaTO> buscarReservasSuperpuestas(LocalDateTime fechaInicio, LocalDateTime fechaFin, String placa) {
 
-		List<Reserva> reservas=this.iReservaRepo.seleccionarReservasSuperpuestas(fechaInicio, fechaFin);
+		List<Reserva> reservas=this.iReservaRepo.seleccionarReservasSuperpuestas(fechaInicio, fechaFin,placa);
 
 		List<ReservaTO> reservaTOs= new ArrayList<>();
 
@@ -181,6 +181,8 @@ public class ReservaServiceImpl implements IReservaService {
 
 		return reservaTOs;
 	}
+	
+	
 
 
 }

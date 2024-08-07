@@ -22,5 +22,5 @@ public interface IReservaService {
 	public ReservaTO buscarPorClienteFecha(String cedula, String placa, LocalDateTime fechaInicio);
 	public RetiroTO obtener(Integer numero);
 
-	public List<ReservaTO> buscarReservasSuperpuestas(LocalDateTime fechaInicio, LocalDateTime fechaFin);
+	public List<ReservaTO> buscarReservasSuperpuestas(LocalDateTime fechaInicio, LocalDateTime fechaFin, String placa);
 }

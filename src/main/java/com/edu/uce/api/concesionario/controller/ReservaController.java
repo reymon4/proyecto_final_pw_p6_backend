@@ -123,8 +123,8 @@ public class ReservaController {
 	
 	@GetMapping(path = "/comprobar", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<ReservaTO>> comprobarReserva(@RequestParam LocalDateTime fechaInicio,
-			@RequestParam LocalDateTime fechaFin) {
-		List<ReservaTO> list = this.iReservaService.buscarReservasSuperpuestas(fechaInicio, fechaFin);
+			@RequestParam LocalDateTime fechaFin, @RequestParam String placa) {
+		List<ReservaTO> list = this.iReservaService.buscarReservasSuperpuestas(fechaInicio, fechaFin,placa);
 		return ResponseEntity.status(HttpStatus.OK).body(list);
 	}
 
